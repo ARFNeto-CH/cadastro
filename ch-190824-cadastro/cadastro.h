@@ -11,10 +11,10 @@
 
 typedef struct
 {
-	unsigned char* pBuffer;
+	unsigned char*  pBuffer;
 	int				disponiveis;
 	int				proximo;
-	FILE* arquivo;
+	FILE*			arquivo;
 } Buffer;
 
 typedef struct
@@ -28,9 +28,9 @@ typedef struct
 	char* nome;
 	unsigned int		linha_original;
 	unsigned int		duplicatas;
-	struct Dup* lista_duplicados;
-	struct Cadastro* proximo;
-	struct Cadastro* anterior;
+	struct Dup*			lista_duplicados;
+	struct Cadastro*	proximo;
+	struct Cadastro*	anterior;
 } Cadastro;
 
 typedef struct
@@ -39,7 +39,7 @@ typedef struct
 	unsigned int		linhas_em_branco;
 	unsigned int		nomes_unicos;
 	unsigned int		nomes_duplicados;
-	Cadastro* cadastro;
+	Cadastro*			cadastro;
 } Base_de_dados;
 
 int acha_o_nome(int, int, char*);
@@ -58,5 +58,4 @@ Cadastro* t_insere_cadastro(Cadastro*, char*, unsigned int);
 int			t_lista_cadastro(Cadastro*);
 int			t_testa_cadastro(Cadastro*);
 
-
-#pragma once
+// fim do header cadastro.h

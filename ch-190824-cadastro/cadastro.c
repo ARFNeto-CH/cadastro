@@ -61,12 +61,7 @@ int t_testa_cadastro(Cadastro* cad)
 int main(int argc, char** argv)
 {
 	FILE*			Entrada = NULL;
-	Buffer			buffer;
-	Base_de_dados	base;
-	int				linhas_lidas = &base.linhas_lidas;
-	int				linhas_em_branco = &base.linhas_em_branco;
 	int				status = 0;
-	char			linha[256];
 	int				limite_teste;	// para em n linhas do arquivo
 
 	printf("\n\nRodando: %s\n\n\n", argv[0]);
@@ -78,7 +73,7 @@ int main(int argc, char** argv)
 			fprintf(stderr, "Erro abrindo %s\n", argv[1]);
 			return 0;
 		}	// end if
-		fprintf(stderr, " - Lendo a partir do arquivo %s\n", argv[1]);
+		fprintf(stderr, " - Arquivo aberto: lendo a partir do arquivo %s\n", argv[1]);
 		if (argc > 2)
 		{
 			limite_teste = atoi(argv[2]);
@@ -97,15 +92,21 @@ int main(int argc, char** argv)
 
 	status = 0;
 
+	// cria o banco de dados
+	Base_de_dados	base;
+
 	base.linhas_em_branco = 0;
 	base.linhas_lidas = 0;
 	base.nomes_duplicados = 0;
 	base.nomes_unicos = 0;
 	base.cadastro = (Cadastro*) malloc(sizeof(Cadastro));
 
+	int		linhas_lidas = &base.linhas_lidas;
+	int		linhas_em_branco = &base.linhas_em_branco;
+	char	linha[256];
+	Buffer	buffer;
+
 	Cadastro* cad = base.cadastro;
-	t_testa_cadastro(cad);
-	if (status == 0) return 0;
 
 	buffer.pBuffer		= malloc((size_t)(_TAMANHO_BUFFER));
 	buffer.disponiveis	= 0;
