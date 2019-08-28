@@ -18,10 +18,21 @@
     <ClCompile Include="cadastro.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="nomes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="listas.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="c.txt">
       <Filter>Source Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cadastro.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

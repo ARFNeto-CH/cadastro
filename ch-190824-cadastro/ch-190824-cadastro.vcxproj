@@ -152,9 +152,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cadastro.c" />
+    <ClCompile Include="listas.c" />
+    <ClCompile Include="nomes.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="c.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cadastro.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
