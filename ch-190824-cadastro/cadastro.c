@@ -495,7 +495,7 @@ int main(int argc, char** argv)
 	base.cadastro = (Cadastro*) malloc(sizeof(Cadastro));
 
 	Cadastro* cad = base.cadastro;
-	t_testa_cadastro(cad); // teste aqui
+	t_testa_cadastro(cad);
 	if (status == 0) return 0;
 
 	buffer.pBuffer		= malloc((size_t)(_TAMANHO_BUFFER));
