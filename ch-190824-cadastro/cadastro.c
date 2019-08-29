@@ -14,54 +14,25 @@ int t_testa_cadastro(Cadastro* cad)
 	// teste
 	Cadastro	teste;
 	Cadastro* pc = &teste;
+	teste.nome = NULL;
 
-	pc->nome = NULL;
-	pc->linha_original = 0;
-	pc->duplicatas = 0;
-	pc->lista_duplicados = NULL;
-	pc->anterior = NULL;
-	pc->proximo = NULL;
+	//pc->nome = NULL;
+	//pc->linha_original = 0;
+	//pc->duplicatas = 0;
+	//pc->lista_duplicados = NULL;
+	//pc->anterior = NULL;
+	//pc->proximo = NULL;
 
-	// testa para cadastro nao criado
-	t_lista_cadastro(NULL);
-	// testa para cadastro vazio
 	t_lista_cadastro(pc);
 	// cria umas duplicatas
-	pc = t_insere_cadastro(pc, "9", 9);
+	pc = t_insere_cadastro(pc, "9", 1);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "8", 8);
+	pc = t_insere_cadastro(pc, "8", 2);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "B", 2);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "B", 22);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "B", 222);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "B", 2222);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "B", 343);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-	// insere no fim
-	pc = t_insere_cadastro(pc, "C", 3);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-	// inserre no comeco
-	pc = t_insere_cadastro(pc, "A", 800);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
 	return 0;
 }	// end testa_cadastro()
 
@@ -106,8 +77,6 @@ int main(int argc, char** argv)
 	base.cadastro = (Cadastro*) malloc(sizeof(Cadastro));
 	base.cadastro->nome = NULL;
 
-	Cadastro* cad = base.cadastro;
-
 	char	linha[256];
 	char* pLinha = linha;
 
@@ -118,8 +87,8 @@ int main(int argc, char** argv)
 	buffer.arquivo		= Entrada;
 	status = 0;
 
-	//t_testa_cadastro(cad);
-	//if (status==0) return 0;
+	t_testa_cadastro(base.cadastro);
+	if (status==0) return 0;
 
 	do
 	{
@@ -128,7 +97,7 @@ int main(int argc, char** argv)
 		if (status > 0)
 		{	// leu uma linha: em branco?
 			base.linhas_lidas++;
-			cad->linha_original = base.linhas_lidas;
+			base.cadastro->linha_original = base.linhas_lidas;
 			if ((t= strlen(pLinha)) > 0)
 			{	// tem algo na linha
 				acha_o_nome(base.linhas_lidas, (int) t,pLinha);
@@ -152,6 +121,6 @@ int main(int argc, char** argv)
 	printf("          %d em branco\n", base.linhas_em_branco);
 	printf("          %d duplicados\n", base.nomes_duplicados);
 	printf("          %d nomes unicos\n", base.nomes_unicos);
-	t_lista_cadastro(base.cadastro);
+	//t_lista_cadastro(base.cadastro);
 	return EXIT_SUCCESS;
   }

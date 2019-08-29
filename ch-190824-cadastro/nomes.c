@@ -113,8 +113,7 @@ int cadastra_o_nome(int linha, char* nome)
 	//
 	if (cad == NULL) return -1;
 	base.cadastro = t_insere_cadastro(base.cadastro, nome, linha);
-	t_lista_cadastro(cad);
-	//.cadastro = cad;
+	t_lista_cadastro(base.cadastro);
 	return 0;
 };	// end cadastra_o_nome();
 
