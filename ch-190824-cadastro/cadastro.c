@@ -9,58 +9,6 @@
 
 #include "cadastro.h"
 
-int t_testa_cadastro(Cadastro* cad)
-{
-	// teste
-	Cadastro	teste;
-	Cadastro* pc = &teste;
-	teste.nome = NULL;
-
-	//pc->nome = NULL;
-	//pc->linha_original = 0;
-	//pc->duplicatas = 0;
-	//pc->lista_duplicados = NULL;
-	//pc->anterior = NULL;
-	//pc->proximo = NULL;
-
-	t_lista_cadastro(pc);
-	// cria umas duplicatas
-
-	pc = t_insere_cadastro(pc, "8", 2);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "8", 3);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "8", 4);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "8", 5);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "9", 6);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "9", 7);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "9", 8);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	pc = t_insere_cadastro(pc, "9", 9);
-	printf("Origem: %s\n", pc->nome);
-	t_lista_cadastro(pc);
-
-	return 0;
-}	// end testa_cadastro()
-
 
 int main(int argc, char** argv)
 {
@@ -112,23 +60,18 @@ int main(int argc, char** argv)
 	buffer.arquivo		= Entrada;
 	status = 0;
 
-	//base.cadastro = t_testa_cadastro(base.cadastro);
-	//if (status==0) return 0;	// para teste das listas
-
 	size_t t;
 	do
 	{
 		status = uma_linha(pLinha, _LIMITE_LINHA, &buffer);
 		if (status == 0) continue;
-
-		// leu uma linha: em branco?
 		base.linhas_lidas++;
 		if ((t= strlen(pLinha)) > 0)
 		{	// tem algo na linha
 			acha_o_nome(base.linhas_lidas, (int) t,pLinha);
 		}
 		else
-		{
+		{	// em branco
 			base.linhas_em_branco++;
 			fprintf(stderr, "Linha %d: Linha em branco\n", base.linhas_lidas);
 		}	// end if
@@ -145,6 +88,6 @@ int main(int argc, char** argv)
 	printf("          %d em branco\n", base.linhas_em_branco);
 	printf("          %d duplicados\n", base.nomes_duplicados);
 	printf("          %d nomes unicos\n", base.nomes_unicos);
-	t_lista_cadastro(base.cadastro);
+	l_lista_cadastro(base.cadastro);
 	return EXIT_SUCCESS;
   }

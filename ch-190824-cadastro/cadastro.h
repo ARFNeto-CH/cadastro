@@ -54,11 +54,9 @@ int uma_linha(char*, const int, Buffer*);
 // rotinas de producao para as listas
 Cadastro*   l_insere_cadastro(Cadastro*, char*, unsigned int const);
 int			l_lista_cadastro(Cadastro*);
-int			l_testa_cadastro(Cadastro*);
 
 // rotinas de teste das listas
 Cadastro*   t_insere_cadastro(Cadastro*, char*, unsigned int const);
 int			t_lista_cadastro(Cadastro*);
-int			t_testa_cadastro(Cadastro*);
 
 // fim do header cadastro.h

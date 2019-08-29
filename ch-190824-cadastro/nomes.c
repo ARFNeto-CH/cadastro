@@ -102,7 +102,7 @@ int cadastra_o_nome(int linha, char* nome)
 {
 	Cadastro* cad = base.cadastro;
 
-	printf(
+	fprintf(stderr,
 		"***** cadastra o nome [%s] linha original [%d]\n",
 		nome,
 		linha
@@ -112,8 +112,7 @@ int cadastra_o_nome(int linha, char* nome)
 	// se nao apontar para nada entao deve cria aqui mesmo
 	//
 	if (base.cadastro == NULL) return -1;
-	base.cadastro = t_insere_cadastro(base.cadastro, nome, linha);
-	t_lista_cadastro(base.cadastro);
+	base.cadastro = l_insere_cadastro(base.cadastro, nome, linha);
 	return 0;
 };	// end cadastra_o_nome();
 

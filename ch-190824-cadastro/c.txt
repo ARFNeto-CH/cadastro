@@ -1,5 +1,10 @@
 2345678 nome  com    muitos      espacos   12345678
+2345678nome  com poucos espacos 12345678
+2345678 nome  com  muitos      espacos   12345678
+2345678 nome  com    muitos  espacos   12345678
+2345678 nome  com    muitos      espacos   12345678
 12345678 nome com menos espacos    12345678
+12345678nome sem espacos12345678
 
 ABCD
 3401 LUCIA GONCALVES  0017786001 00000        BR00      00000
