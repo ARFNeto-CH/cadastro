@@ -6,7 +6,6 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-
 #include "cadastro.h"
 
 
@@ -115,6 +114,7 @@ int cadastra_o_nome(int linha, char* nome)
 	base.cadastro = l_insere_cadastro(base.cadastro, nome, linha);
 	return 0;
 };	// end cadastra_o_nome();
+
 
 int completa_buffer(Buffer* b)
 {

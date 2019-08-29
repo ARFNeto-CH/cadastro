@@ -1,0 +1,36 @@
+
+
+Rodando: cadastro
+
+
+Final:
+    Lidas 18 linhas
+          3 em branco
+          7 duplicados
+          8 nomes unicos
+
+Listando:
+Linha	Nome
+-----   ------------------------------------------------
+17	[aaaa]
+		+1
+		#1: [18]
+9	[abcd]
+10	[lucia goncalves]
+		+2
+		#1: [13]
+		#2: [15]
+14	[marta pereira dos santos]
+		+1
+		#1: [16]
+6	[nome com menos espacos]
+1	[nome com muitos espacos]
+		+3
+		#1: [3]
+		#2: [4]
+		#3: [5]
+2	[nome com poucos espacos]
+7	[nome sem espacos]
+
+Fim da Lista
+

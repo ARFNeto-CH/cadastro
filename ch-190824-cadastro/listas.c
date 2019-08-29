@@ -44,11 +44,6 @@ Cadastro* l_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 	// usando strmcmp() até encontrar o primeiro nome maior que o 
 	// que temos aqui, ou até chegar ao fim da lista, claro.
 	//
-	// acertando os ponteiros:
-	// 
-	// estamos para inserir 'novo_nome' na lista
-	// o primeiro nome na lista e 'p->nome
-	//
 	while (1)
 	{
 		int n = strcmp(p->nome, novo_nome);

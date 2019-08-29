@@ -157,6 +157,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="c.txt" />
+    <Text Include="out.txt" />
+    <Text Include="outfull.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cadastro.h" />

@@ -51,11 +51,11 @@ int completa_buffer(Buffer*);
 int trata_o_nome(int, char*);
 int uma_linha(char*, const int, Buffer*);
 
-// rotinas de producao para as listas
+// listas
 Cadastro*   l_insere_cadastro(Cadastro*, char*, unsigned int const);
 int			l_lista_cadastro(Cadastro*);
 
-// rotinas de teste das listas
+// teste das listas
 Cadastro*   t_insere_cadastro(Cadastro*, char*, unsigned int const);
 int			t_lista_cadastro(Cadastro*);
 

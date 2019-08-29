@@ -1,0 +1,139 @@
+ - Arquivo aberto: lendo a partir do arquivo c.txt
+Linha 1: Nome com 36 caracteres. Posicao [7,43]
+2345678 nome  com    muitos      espacos   12345678
+-------************************************--------
+[ nome  com    muitos      espacos   ]
+Linha 1: Nome [nome  com    muitos      espacos]
+Linha 1: Nome[nome com muitos espacos] (comprimido)
+***** cadastra o nome [nome com muitos espacos] linha original [1]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 2: Nome com 25 caracteres. Posicao [7,32]
+2345678nome  com poucos espacos 12345678
+-------*************************--------
+[nome  com poucos espacos ]
+Linha 2: Nome [nome  com poucos espacos]
+Linha 2: Nome[nome com poucos espacos] (comprimido)
+***** cadastra o nome [nome com poucos espacos] linha original [2]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 3: Nome com 34 caracteres. Posicao [7,41]
+2345678 nome  com  muitos      espacos   12345678
+-------**********************************--------
+[ nome  com  muitos      espacos   ]
+Linha 3: Nome [nome  com  muitos      espacos]
+Linha 3: Nome[nome com muitos espacos] (comprimido)
+***** cadastra o nome [nome com muitos espacos] linha original [3]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 4: Nome com 32 caracteres. Posicao [7,39]
+2345678 nome  com    muitos  espacos   12345678
+-------********************************--------
+[ nome  com    muitos  espacos   ]
+Linha 4: Nome [nome  com    muitos  espacos]
+Linha 4: Nome[nome com muitos espacos] (comprimido)
+***** cadastra o nome [nome com muitos espacos] linha original [4]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 5: Nome com 36 caracteres. Posicao [7,43]
+2345678 nome  com    muitos      espacos   12345678
+-------************************************--------
+[ nome  com    muitos      espacos   ]
+Linha 5: Nome [nome  com    muitos      espacos]
+Linha 5: Nome[nome com muitos espacos] (comprimido)
+***** cadastra o nome [nome com muitos espacos] linha original [5]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 6: Nome com 27 caracteres. Posicao [8,35]
+12345678 nome com menos espacos    12345678
+--------***************************--------
+[ nome com menos espacos    ]
+Linha 6: Nome [nome com menos espacos]
+Linha 6: Nome[nome com menos espacos] (comprimido)
+***** cadastra o nome [nome com menos espacos] linha original [6]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 7: Nome com 16 caracteres. Posicao [8,24]
+12345678nome sem espacos12345678
+--------****************--------
+[nome sem espacos]
+Linha 7: Nome [nome sem espacos]
+Linha 7: Nome[nome sem espacos] (comprimido)
+***** cadastra o nome [nome sem espacos] linha original [7]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 8: Linha em branco
+Linha 9: Nome com 4 caracteres. Posicao [0,4]
+ABCD
+****
+[ABCD]
+Linha 9: Nome [ABCD]
+Linha 9: Nome[abcd] (comprimido)
+***** cadastra o nome [abcd] linha original [9]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 10: Nome com 18 caracteres. Posicao [4,22]
+3401 LUCIA GONCALVES  0017786001 00000        BR00      00000
+----******************---------------------------------------
+[ LUCIA GONCALVES  ]
+Linha 10: Nome [LUCIA GONCALVES]
+Linha 10: Nome[lucia goncalves] (comprimido)
+***** cadastra o nome [lucia goncalves] linha original [10]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 11: Linha em branco
+Linha 12: Linha em branco
+Linha 13: Nome com 19 caracteres. Posicao [4,23]
+3401 LUCIA  GONCALVES  0017786001 00                       00000
+----*******************-----------------------------------------
+[ LUCIA  GONCALVES  ]
+Linha 13: Nome [LUCIA  GONCALVES]
+Linha 13: Nome[lucia goncalves] (comprimido)
+***** cadastra o nome [lucia goncalves] linha original [13]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 14: Nome com 35 caracteres. Posicao [4,39]
+3402    MARTA       PEREIRA DOS SANTOS 00177   00000
+----***********************************-------------
+[    MARTA       PEREIRA DOS SANTOS ]
+Linha 14: Nome [MARTA       PEREIRA DOS SANTOS]
+Linha 14: Nome[marta pereira dos santos] (comprimido)
+***** cadastra o nome [marta pereira dos santos] linha original [14]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 15: Nome com 19 caracteres. Posicao [4,23]
+3401 	LUCIA GONCALVES  0017786001 00000      00000
+----*******************---------------------------
+[ 	LUCIA GONCALVES  ]
+Linha 15: Nome [LUCIA GONCALVES]
+Linha 15: Nome[lucia goncalves] (comprimido)
+***** cadastra o nome [lucia goncalves] linha original [15]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 16: Nome com 26 caracteres. Posicao [4,30]
+3402 MARTA PEREIRA DOS SANTOS 0017786002 00000 08
+----**************************-------------------
+[ MARTA PEREIRA DOS SANTOS ]
+Linha 16: Nome [MARTA PEREIRA DOS SANTOS]
+Linha 16: Nome[marta pereira dos santos] (comprimido)
+***** cadastra o nome [marta pereira dos santos] linha original [16]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 17: Nome com 4 caracteres. Posicao [2,6]
+23AAAA23
+--****--
+[AAAA]
+Linha 17: Nome [AAAA]
+Linha 17: Nome[aaaa] (comprimido)
+***** cadastra o nome [aaaa] linha original [17]
+__________ __________ __________ __________ __________ __________ 
+
+Linha 18: Nome com 4 caracteres. Posicao [2,6]
+23AAAA23
+--****--
+[AAAA]
+Linha 18: Nome [AAAA]
+Linha 18: Nome[aaaa] (comprimido)
+***** cadastra o nome [aaaa] linha original [18]
+__________ __________ __________ __________ __________ __________ 
+

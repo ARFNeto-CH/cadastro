@@ -17,6 +17,7 @@ int main(int argc, char** argv)
 	int				limite_teste;	// para em n linhas do arquivo
 
 	printf("\n\nRodando: %s\n\n\n", argv[0]);
+	fprintf( stderr,"\n\nRodando: %s\n\n\n", argv[0]);
 	if (argc > 1)
 	{
 		Entrada = fopen(argv[1], "r");

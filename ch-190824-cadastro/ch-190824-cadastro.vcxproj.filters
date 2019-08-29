@@ -29,6 +29,12 @@
     <Text Include="c.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="out.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="outfull.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cadastro.h">
