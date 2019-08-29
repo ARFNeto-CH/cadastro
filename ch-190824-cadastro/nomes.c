@@ -105,6 +105,13 @@ int completa_buffer(Buffer* b)
 	int a_ler = _TAMANHO_BUFFER - b->disponiveis;	// tenta completar
 	p = b->pBuffer + b->disponiveis;	// le a partir do que ja tinha
 	int lidos = fread(p, 1, a_ler, b->arquivo);
+	printf("leu %d\n", lidos);
+	char parcial[71];
+	char* pp = parcial;
+	memset(pp, 32, 70);
+	parcial[70] = 0;
+	memcpy(pp, p, 70);
+	printf("[%s]\n", pp);
 	b->disponiveis = b->disponiveis + lidos;
 	b->proximo = 0;
 	if (lidos == 0)	return(-1);	else return 0;	// sinaliza final
