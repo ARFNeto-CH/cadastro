@@ -27,7 +27,11 @@ int t_testa_cadastro(Cadastro* cad)
 	// testa para cadastro vazio
 	t_lista_cadastro(pc);
 	// cria umas duplicatas
-	pc = t_insere_cadastro(pc, "B", 1);
+	pc = t_insere_cadastro(pc, "9", 9);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "8", 8);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
@@ -35,11 +39,15 @@ int t_testa_cadastro(Cadastro* cad)
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "B", 3);
+	pc = t_insere_cadastro(pc, "B", 22);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "B", 43);
+	pc = t_insere_cadastro(pc, "B", 222);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "B", 2222);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
@@ -90,47 +98,48 @@ int main(int argc, char** argv)
 		Entrada = stdin;
 	}// end if
 
-	status = 0;
-
-	// cria o banco de dados
-	Base_de_dados	base;
-
+	// prepara o banco de dados
 	base.linhas_em_branco = 0;
 	base.linhas_lidas = 0;
 	base.nomes_duplicados = 0;
 	base.nomes_unicos = 0;
 	base.cadastro = (Cadastro*) malloc(sizeof(Cadastro));
-
-	int		linhas_lidas = &base.linhas_lidas;
-	int		linhas_em_branco = &base.linhas_em_branco;
-	char	linha[256];
-	Buffer	buffer;
+	base.cadastro->nome = NULL;
 
 	Cadastro* cad = base.cadastro;
 
+	char	linha[256];
+	char* pLinha = linha;
+
+	Buffer	buffer;
 	buffer.pBuffer		= malloc((size_t)(_TAMANHO_BUFFER));
 	buffer.disponiveis	= 0;
 	buffer.proximo		= 0;
 	buffer.arquivo		= Entrada;
+	status = 0;
+
+	//t_testa_cadastro(cad);
+	//if (status==0) return 0;
 
 	do
 	{
 		size_t t;
-		status = uma_linha(linha, _LIMITE_LINHA, &buffer);
+		status = uma_linha(pLinha, _LIMITE_LINHA, &buffer);
 		if (status > 0)
 		{	// leu uma linha: em branco?
-			linhas_lidas++;
-			if (t =  strlen(linha) > 0)
+			base.linhas_lidas++;
+			cad->linha_original = base.linhas_lidas;
+			if ((t= strlen(pLinha)) > 0)
 			{	// tem algo na linha
-				acha_o_nome(linhas_lidas, t, linha);
+				acha_o_nome(base.linhas_lidas, (int) t,pLinha);
 			}
 			else
 			{
-				linhas_em_branco++;
-				fprintf(stderr, "Linha %d: Linha em branco\n", linhas_lidas);
+				base.linhas_em_branco++;
+				fprintf(stderr, "Linha %d: Linha em branco\n", base.linhas_lidas);
 			}	// end if
 
-			if (linhas_lidas < limite_teste) continue;
+			if (base.linhas_lidas < (unsigned) limite_teste) continue;
 			fprintf(stderr, "\n\n\n***** atingido limite de %d linhas *****\n", limite_teste);
 			break;
 		}	// end if
@@ -138,6 +147,11 @@ int main(int argc, char** argv)
 
 	free(buffer.pBuffer);
 	fclose(Entrada);
-	printf("Final: Lidas %d linhas --- %d em branco\n", linhas_lidas, linhas_em_branco);
+	printf("Final:\n");
+	printf("    Lidas %d linhas\n", base.linhas_lidas);
+	printf("          %d em branco\n", base.linhas_em_branco);
+	printf("          %d duplicados\n", base.nomes_duplicados);
+	printf("          %d nomes unicos\n", base.nomes_unicos);
+	t_lista_cadastro(base.cadastro);
 	return EXIT_SUCCESS;
   }

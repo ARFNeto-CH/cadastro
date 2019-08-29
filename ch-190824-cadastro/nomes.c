@@ -89,10 +89,34 @@ int ajusta_o_nome(int n, char* nome)
 	pVetor++;
 	*pVetor = 0;	// termina a string de saida
 	fprintf(stderr, "Linha %d: Nome[%s] (comprimido)\n", n, vetor);
-	free(vetor);
+	//
+	// tem o nome certinho: cadastra no banco
+	//
+	cadastra_o_nome(n, vetor);
+	//free(vetor);
 	return 0;
 }	// end ajusta_o_nome()
 
+
+int cadastra_o_nome(int linha, char* nome)
+{
+	Cadastro* cad = base.cadastro;
+
+	printf(
+		"***** cadastra o nome [%s] linha original [%d]\n",
+		nome,
+		linha
+	);
+	// onde esta o cadastro?
+	// em base.cadastro esta o endereco
+	// se nao apontar para nada entao deve cria aqui mesmo
+	//
+	if (cad == NULL) return -1;
+	base.cadastro = t_insere_cadastro(base.cadastro, nome, linha);
+	t_lista_cadastro(cad);
+	//.cadastro = cad;
+	return 0;
+};	// end cadastra_o_nome();
 
 int completa_buffer(Buffer* b)
 {
@@ -105,13 +129,6 @@ int completa_buffer(Buffer* b)
 	int a_ler = _TAMANHO_BUFFER - b->disponiveis;	// tenta completar
 	p = b->pBuffer + b->disponiveis;	// le a partir do que ja tinha
 	int lidos = fread(p, 1, a_ler, b->arquivo);
-	printf("leu %d\n", lidos);
-	char parcial[71];
-	char* pp = parcial;
-	memset(pp, 32, 70);
-	parcial[70] = 0;
-	memcpy(pp, p, 70);
-	printf("[%s]\n", pp);
 	b->disponiveis = b->disponiveis + lidos;
 	b->proximo = 0;
 	if (lidos == 0)	return(-1);	else return 0;	// sinaliza final
@@ -158,7 +175,6 @@ int trata_o_nome(int n, char* nome)
 	fprintf(stderr, "Linha %d: Nome [%s]\n", n, nome + inicio);
 	ajusta_o_nome(n, nome + inicio);
 	fprintf(stderr, "__________ __________ __________ __________ __________ __________ \n\n");
-
 	return 0;
 }	// end trata_o_nome()
 

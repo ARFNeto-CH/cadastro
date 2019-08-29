@@ -180,7 +180,7 @@ int l_lista_cadastro(Cadastro* cad)
 }	// end t_lista_cadastro()
 
 
-Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int linha)
+Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const linha)
 {
 	if (cad == NULL)
 	{
@@ -253,13 +253,21 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int linha)
 			if (p->anterior == NULL)
 			{
 				printf("    [%s] vai ser o novo primeiro\n", pNovo->nome);
+
 				pNovo->anterior = NULL;
 				pNovo->proximo = (Cadastro*)p;
 				p->anterior = (Cadastro*)pNovo;
 				// p-> proximo nao muda
 				// o segundo apontava para o primeiro
 				Cadastro* segundo = (Cadastro*)p->proximo;
-				segundo->anterior = (Cadastro*)pNovo;
+				if (segundo != NULL)
+				{
+					segundo->anterior = (Cadastro*)pNovo;
+				}
+				else
+				{
+					p->proximo == NULL;
+				}	// end if
 				printf("    inserido [%s] NOVA ORIGEM\n", novo_nome);
 				return pNovo;
 			}
@@ -304,7 +312,7 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int linha)
 			while (pDup->proxima != NULL) pDup = pDup->proxima;
 			pDup->proxima = pNovo_dup;
 		}	// end if
-		printf("    [%s] igual: cadastrada como duplicata %d\n", p->nome, p->duplicatas);
+		printf("    [%s] igual: cadastrada como duplicata %d na linha %d\n", p->nome, p->duplicatas, linha);
 		return cad;
 	}
 	return cad;
@@ -313,7 +321,7 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int linha)
 
 int t_lista_cadastro(Cadastro* cad)
 {
-	if (cad == NULL)
+ 	if (cad == NULL)
 	{
 		printf("\nListando: Cadastro ainda nao alocado\n");
 		return 0;
@@ -332,10 +340,10 @@ int t_lista_cadastro(Cadastro* cad)
 	do
 	{
 		printf("Nome:.......[%s]\n", p->nome);
-		printf("    Linha:.......[%d]\n", p->linha_original);
+		printf("    Linha:       [%d]\n", p->linha_original);
 		if (p->duplicatas > 0)
 		{
-			printf(" N. Duplicadas:..[%d]\n", p->duplicatas);
+			printf(" N. Duplicadas:  [%d]\n", p->duplicatas);
 			Dup* pDup = p->lista_duplicados;
 			for (int n = 1; n <= p->duplicatas; n++)
 			{

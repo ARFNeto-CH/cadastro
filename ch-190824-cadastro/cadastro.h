@@ -42,14 +42,17 @@ typedef struct
 	Cadastro*			cadastro;
 } Base_de_dados;
 
+Base_de_dados	base;
+
 int acha_o_nome(int, int, char*);
 int ajusta_o_nome(int, char*);
+int cadastra_o_nome(int, char*);
 int completa_buffer(Buffer*);
 int trata_o_nome(int, char*);
 int uma_linha(char*, const int, Buffer*);
 
 // rotinas de producao para as listas
-Cadastro* l_insere_cadastro(Cadastro*, char*, unsigned int);
+Cadastro* l_insere_cadastro(Cadastro*, char*, unsigned int const);
 int			l_lista_cadastro(Cadastro*);
 int			l_testa_cadastro(Cadastro*);
 
