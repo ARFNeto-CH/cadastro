@@ -30,31 +30,31 @@ int t_testa_cadastro(Cadastro* cad)
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "8", 2);
+	pc = t_insere_cadastro(pc, "8", 3);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "8", 2);
+	pc = t_insere_cadastro(pc, "8", 4);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "8", 2);
+	pc = t_insere_cadastro(pc, "8", 5);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "9", 1);
+	pc = t_insere_cadastro(pc, "9", 6);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "9", 1);
+	pc = t_insere_cadastro(pc, "9", 7);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "9", 1);
+	pc = t_insere_cadastro(pc, "9", 8);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
-	pc = t_insere_cadastro(pc, "9", 1);
+	pc = t_insere_cadastro(pc, "9", 9);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
@@ -112,31 +112,30 @@ int main(int argc, char** argv)
 	buffer.arquivo		= Entrada;
 	status = 0;
 
-	 base.cadastro = t_testa_cadastro(base.cadastro);
-	if (status==0) return 0;
+	//base.cadastro = t_testa_cadastro(base.cadastro);
+	//if (status==0) return 0;	// para teste das listas
 
+	size_t t;
 	do
 	{
-		size_t t;
 		status = uma_linha(pLinha, _LIMITE_LINHA, &buffer);
-		if (status > 0)
-		{	// leu uma linha: em branco?
-			base.linhas_lidas++;
-			base.cadastro->linha_original = base.linhas_lidas;
-			if ((t= strlen(pLinha)) > 0)
-			{	// tem algo na linha
-				acha_o_nome(base.linhas_lidas, (int) t,pLinha);
-			}
-			else
-			{
-				base.linhas_em_branco++;
-				fprintf(stderr, "Linha %d: Linha em branco\n", base.linhas_lidas);
-			}	// end if
+		if (status == 0) continue;
 
-			if (base.linhas_lidas < (unsigned) limite_teste) continue;
-			fprintf(stderr, "\n\n\n***** atingido limite de %d linhas *****\n", limite_teste);
-			break;
+		// leu uma linha: em branco?
+		base.linhas_lidas++;
+		if ((t= strlen(pLinha)) > 0)
+		{	// tem algo na linha
+			acha_o_nome(base.linhas_lidas, (int) t,pLinha);
+		}
+		else
+		{
+			base.linhas_em_branco++;
+			fprintf(stderr, "Linha %d: Linha em branco\n", base.linhas_lidas);
 		}	// end if
+
+		if (base.linhas_lidas < (unsigned) limite_teste) continue;
+		fprintf(stderr, "\n\n\n***** atingido limite de %d linhas *****\n", limite_teste);
+		break;
 	} while (status >=0);
 
 	free(buffer.pBuffer);
@@ -146,6 +145,6 @@ int main(int argc, char** argv)
 	printf("          %d em branco\n", base.linhas_em_branco);
 	printf("          %d duplicados\n", base.nomes_duplicados);
 	printf("          %d nomes unicos\n", base.nomes_unicos);
-	//t_lista_cadastro(base.cadastro);
+	t_lista_cadastro(base.cadastro);
 	return EXIT_SUCCESS;
   }

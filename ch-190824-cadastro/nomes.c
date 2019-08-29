@@ -111,7 +111,7 @@ int cadastra_o_nome(int linha, char* nome)
 	// em base.cadastro esta o endereco
 	// se nao apontar para nada entao deve cria aqui mesmo
 	//
-	if (cad == NULL) return -1;
+	if (base.cadastro == NULL) return -1;
 	base.cadastro = t_insere_cadastro(base.cadastro, nome, linha);
 	t_lista_cadastro(base.cadastro);
 	return 0;

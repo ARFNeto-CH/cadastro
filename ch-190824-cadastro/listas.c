@@ -30,7 +30,7 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 		printf("***** inserindo: Cadastro nao definido\n");
 		return NULL;
 	}
-
+	Cadastro* const		mesma_origem = cad;
 	Cadastro* p = cad;
 	int len = (int) strlen(cliente) + 1;
 	printf("***** inserindo: [%s] (linha %d)\n", cliente, linha);
@@ -53,9 +53,9 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 		printf("Origem:_______ [ NULL ]\n");
 		printf("Na lista:_____ [ NULL ]\n");
 		printf("Inserindo:____ [%s]\n", pNovo->nome);
+		printf("[1] NOVA ORIGEM\n", novo_nome);
 		base.nomes_unicos++;
-		p = pNovo;
-		return p;
+		return pNovo;
 	}	// end if
 	//
 	// ja tem alguem na lista: tem que achar o lugar certo pra inserir
@@ -70,7 +70,6 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 	//
 	while (1)
 	{
-
 		int n = strcmp(p->nome, novo_nome);
 		printf("---------- ---------- ----------\n");
 		printf("Origem:_______ [%s]\n", cad->nome);
@@ -88,16 +87,15 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 				pNovo->anterior = (Cadastro*)p;
 				printf("    inserido [%s] (#%d) no final\n", novo_nome, pNovo->linha_original);
 				base.nomes_unicos++;
-				return cad;	// mesma origem
+				return mesma_origem;	// mesma origem
 			}
-			p = (Cadastro*)p->proximo;
+			p = (Cadastro*)p->proximo;	// avanca
 			continue;
 		}	// end if
 
 		if (n > 0)
 		{
 			base.nomes_unicos++;	// nome novo de todo modo
-			// é aqui
 			printf("    [%s] maior: insere aqui\n", p->nome);
 			// pegadinha: se vai inserir antes do primeiro e diferente
 			if (p->anterior == NULL)
@@ -121,8 +119,8 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 			}	// end if
 
 			printf("    [%s] vai ser inserido no meio da lista\n", pNovo->nome);
-			// insere pNovo antes de p
 
+			// insere pNovo antes de p
 
 			Cadastro* outro = (Cadastro*)p->anterior;
 			outro->proximo = (Cadastro*)pNovo;
@@ -136,7 +134,7 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 			p->anterior = (Cadastro*)pNovo;
 			// p-> proximo nao muda
 			printf("    inserido [%s] (#%d) na lista\n", pNovo->nome, pNovo->linha_original);
-			return cad;
+			return mesma_origem;
 		}	// end if
 
 		// nem maior nem menor: sao iguais. Cadastra duplicado
@@ -162,9 +160,9 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 			pDup->proxima = pNovo_dup;
 		}	// end if
 		printf("    [%s] igual: duplicata da linha (%d) na linha (%d)\n", p->nome, p->linha_original, linha);
-		return cad;
+		return mesma_origem;
 	}	// end while
-	return cad;
+	return mesma_origem;
 }	// end t_insere_cadastro()
 
 
@@ -185,18 +183,17 @@ int t_lista_cadastro(Cadastro* cad)
 	}	// end if
 
 	// lista tem ao menos um cliente
-	printf("\nListando:\n----------    ----------    ----------    ----------    \n");
+	printf("\nListando:\nLinha\tNome\n-----   ------------------------------------------------\n");
 	do
 	{
-		printf("Nome:.......[%s]\n", p->nome);
-		printf("    Linha:       [%d]\n", p->linha_original);
+		printf("%d\t[%s]\n", p->linha_original, p->nome);
 		if (p->duplicatas > 0)
 		{
-			printf(" N. Duplicadas:  [%d]\n", p->duplicatas);
+			printf("\t\t+%d\n", p->duplicatas);
 			Dup* pDup = p->lista_duplicados;
 			for (unsigned int n=1; n <= p->duplicatas; n++)
 			{
-				printf("         %d: [Linha %d]\n", n, pDup->duplicata);
+				printf("\t\t#%d: [%d]\n", n, pDup->duplicata);
 				pDup = pDup->proxima;
 			}	// end for
 		}	// end if
