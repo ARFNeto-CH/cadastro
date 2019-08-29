@@ -25,11 +25,36 @@ int t_testa_cadastro(Cadastro* cad)
 
 	t_lista_cadastro(pc);
 	// cria umas duplicatas
-	pc = t_insere_cadastro(pc, "9", 1);
+
+	pc = t_insere_cadastro(pc, "8", 2);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
 	pc = t_insere_cadastro(pc, "8", 2);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "8", 2);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "8", 2);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "9", 1);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "9", 1);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "9", 1);
+	printf("Origem: %s\n", pc->nome);
+	t_lista_cadastro(pc);
+
+	pc = t_insere_cadastro(pc, "9", 1);
 	printf("Origem: %s\n", pc->nome);
 	t_lista_cadastro(pc);
 
@@ -87,7 +112,7 @@ int main(int argc, char** argv)
 	buffer.arquivo		= Entrada;
 	status = 0;
 
-	t_testa_cadastro(base.cadastro);
+	 base.cadastro = t_testa_cadastro(base.cadastro);
 	if (status==0) return 0;
 
 	do

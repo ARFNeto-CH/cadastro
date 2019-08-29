@@ -11,7 +11,7 @@
 
 
 
-Cadastro* l_insere_cadastro(Cadastro* cad, char* cliente, unsigned int linha)
+Cadastro* l_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const linha)
 {
 	return NULL;
 }	// end t_insere_cadastro()
@@ -32,7 +32,7 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 	}
 
 	Cadastro* p = cad;
-	int len = strlen(cliente) + 1;
+	int len = (int) strlen(cliente) + 1;
 	printf("***** inserindo: [%s] (linha %d)\n", cliente, linha);
 	char* novo_nome = (char*)malloc(len);
 	strcpy(novo_nome, cliente);
@@ -50,8 +50,8 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 	if (p->nome == NULL)	// nesse caso nao tem ninguem
 	{
 		printf("---------- ---------- ----------\n");
-		printf("Origem:_______ [ NULL ]\n", cad->nome);
-		printf("Na lista:_____ [ NULL ]\n", p->nome);
+		printf("Origem:_______ [ NULL ]\n");
+		printf("Na lista:_____ [ NULL ]\n");
 		printf("Inserindo:____ [%s]\n", pNovo->nome);
 		base.nomes_unicos++;
 		p = pNovo;
@@ -114,7 +114,7 @@ Cadastro* t_insere_cadastro(Cadastro* cad, char* cliente, unsigned int const lin
 				}
 				else
 				{
-					p->proximo == NULL;
+					p->proximo = NULL;
 				}	// end if
 				printf("    inserido [%s] NOVA ORIGEM\n", novo_nome);
 				return pNovo;
@@ -194,7 +194,7 @@ int t_lista_cadastro(Cadastro* cad)
 		{
 			printf(" N. Duplicadas:  [%d]\n", p->duplicatas);
 			Dup* pDup = p->lista_duplicados;
-			for (int n = 1; n <= p->duplicatas; n++)
+			for (unsigned int n=1; n <= p->duplicatas; n++)
 			{
 				printf("         %d: [Linha %d]\n", n, pDup->duplicata);
 				pDup = pDup->proxima;
