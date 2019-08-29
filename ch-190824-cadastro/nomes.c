@@ -99,17 +99,11 @@ int ajusta_o_nome(int n, char* nome)
 
 int cadastra_o_nome(int linha, char* nome)
 {
-	Cadastro* cad = base.cadastro;
-
 	fprintf(stderr,
 		"***** cadastra o nome [%s] linha original [%d]\n",
 		nome,
 		linha
 	);
-	// onde esta o cadastro?
-	// em base.cadastro esta o endereco
-	// se nao apontar para nada entao deve cria aqui mesmo
-	//
 	if (base.cadastro == NULL) return -1;
 	base.cadastro = l_insere_cadastro(base.cadastro, nome, linha);
 	return 0;
